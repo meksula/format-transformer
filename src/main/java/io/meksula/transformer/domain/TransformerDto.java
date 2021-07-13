@@ -11,4 +11,8 @@ public class TransformerDto {
     private TransformerTypes from;
     private TransformerTypes to;
     private String encodedData;
+    /**
+     * Processed by app running on hostname
+     * */
+    private String hostname;
 }
