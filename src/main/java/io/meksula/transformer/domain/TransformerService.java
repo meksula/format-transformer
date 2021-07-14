@@ -27,7 +27,6 @@ import java.util.function.Function;
 @Service
 public class TransformerService {
 
-    static final String queueName = "format-transformation-event";
     private static ObjectMapper yamlObjectMapper = new YAMLMapper();
     private static XmlMapper xmlObjectMapper = new XmlMapper();
     private static ObjectMapper jsonObjectMapper = new JsonMapper();
