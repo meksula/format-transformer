@@ -31,4 +31,4 @@ COPY --from=0 ${EXECUTABLE_ARTIFACT} .
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "/opt/transformer/format-transformer-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "/opt/transformer/format-transformer-0.0.1-SNAPSHOT.jar", "--spring.profiles.active=k8s"]
