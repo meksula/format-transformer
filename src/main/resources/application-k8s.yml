@@ -3,4 +3,6 @@ server:
 
 spring:
   rabbitmq:
-    host: rabbitmq.io
+    host: production-rabbitmqcluster.default.svc.cluster.local
+  redis:
+    host: postgresql.service.external
