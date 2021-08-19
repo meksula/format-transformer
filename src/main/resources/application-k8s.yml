@@ -3,6 +3,6 @@ server:
 
 spring:
   rabbitmq:
-    host: production-rabbitmqcluster.default.svc.cluster.local
+    host: ${MESSAGE_BROKER_HOST}
   redis:
-    host: postgresql.service.external
+    host: ${CACHE_HOST}
