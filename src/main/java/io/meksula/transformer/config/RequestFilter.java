@@ -26,12 +26,16 @@ public class RequestFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
 
         log.info("Just handled request to format-transformer");
-        serviceActivityRepository.save(ServiceActivityEntity.builder()
-                                                            .accessTimestamp(LocalDateTime.now().toInstant(ZoneOffset.UTC).getEpochSecond())
-                                                            .requestUri(request.getRequestURI())
-                                                            .clientIp(request.getRemoteHost())
-                                                            .build());
-
-        filterChain.doFilter(servletRequest, servletResponse);
+        try {
+            serviceActivityRepository.save(ServiceActivityEntity.builder()
+                    .accessTimestamp(LocalDateTime.now().toInstant(ZoneOffset.UTC).getEpochSecond())
+                    .requestUri(request.getRequestURI())
+                    .clientIp(request.getRemoteHost())
+                    .build());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            filterChain.doFilter(servletRequest, servletResponse);
+        }
     }
 }
