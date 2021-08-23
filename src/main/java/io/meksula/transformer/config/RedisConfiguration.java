@@ -15,11 +15,12 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @EnableRedisRepositories
 public class RedisConfiguration {
 
-    @Value("${spring.redis.host}")
+    @Value("${CACHE_HOST}")
     private String redisHost;
 
     @Bean
     public LettuceConnectionFactory redisConnectionFactory() {
+        log.info("Lettuce connection to host: {}", this.redisHost);
         return new LettuceConnectionFactory(new RedisStandaloneConfiguration(redisHost, 6379));
     }
 

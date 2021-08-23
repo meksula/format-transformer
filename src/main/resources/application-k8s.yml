@@ -4,6 +4,3 @@ server:
 spring:
   rabbitmq:
     host: ${MESSAGE_BROKER_HOST}
-  redis:
-    host: ${CACHE_HOST}
-    port: 6379
